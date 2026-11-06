@@ -7,8 +7,12 @@ public class ExerciseTests
 {
     [Theory]
     [InlineData(1, 4, true)]
+    [InlineData(3, 4, true)]
     [InlineData(4, 4, true)]
     [InlineData(5, 4, false)]
+    [InlineData(0, 4, false)]
+    [InlineData(-1, 4, false)]
+    [InlineData(1, 0, false)]
     public void CanReserve_ReturnsExpectedDecision(int requested, int available, bool expected)
     {
         bool actual = SeatPolicy.CanReserve(requested, available);
