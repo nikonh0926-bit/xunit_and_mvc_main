@@ -12,7 +12,9 @@ public class CargoStack<T>
 
     public T Pop()
     {
-        // TODO: Avvis tom stack med avtalt unntak før indeksering.
+        if(_items.Count <= 0)
+            throw new InvalidOperationException("Stack is empty");
+
         int lastIndex = _items.Count - 1;
         T item = _items[lastIndex];
         _items.RemoveAt(lastIndex);
